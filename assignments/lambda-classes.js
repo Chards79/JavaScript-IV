@@ -33,13 +33,25 @@ class Student extends Person {
 		this.className = studentAttrs.className;
 		this.favSubjects = studentAttrs.favSubjects;
 	}
+
 	listsSubjects() {
-		console.log(this.favSubjects);
+		this.favSubjects.forEach(element => {
+			console.log(element);
+		});
 	}
+
+	// listsSubjects() {
+	// 	for (i = 0; i < this.favSubjects.length; i++) {
+
+	//     }
+	// }
+
 	PRAssignment(subject) {
-		return `${student.name} has begun sprint challenge on ${subject}.`;
+		return `${this.name} has submitted a PR for ${subject}.`;
 	}
-	sprintChallenge() {}
+	sprintChallenge(subject) {
+		return `${this.name} has begun sprint challenge on ${subject}.`;
+	}
 }
 
 class ProjectManager extends Instructor {
@@ -48,8 +60,12 @@ class ProjectManager extends Instructor {
 		this.gradClassName = projectManagerAttrs.gradClassName;
 		this.favInstructor = projectManagerAttrs.favInstructor;
 	}
-	standup() {}
-	debugsCode() {}
+	standup(channel) {
+		return `${this.name} announces to ${channel}, @channel standy times!`;
+	}
+	debugsCode(student, subject) {
+		return `${this.name} debugs ${student.name}'s code on ${subject}.`;
+	}
 }
 
 //Objects
@@ -132,5 +148,15 @@ const hermes = new ProjectManager({
 
 // Tests
 
+console.log(bender.location);
+console.log(hermes.catchPhrase);
+console.log(fry.previousBackground);
+console.log(amy.favInstructor);
+console.log(leela.speak());
 console.log(bender.demo("javascript"));
-console.log(zoidberg.favSubjects);
+console.log(amy.grade(fry, "Preprocessing"));
+console.log(fry.listsSubjects());
+console.log(fry.PRAssignment("Flexbox"));
+console.log(zoidberg.sprintChallenge("CSS"));
+console.log(hermes.standup("web23_hermes"));
+console.log(amy.debugsCode(zoidberg, "User-Interface"));
