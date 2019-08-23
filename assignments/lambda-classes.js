@@ -33,19 +33,11 @@ class Student extends Person {
 		this.className = studentAttrs.className;
 		this.favSubjects = studentAttrs.favSubjects;
 	}
-
 	listsSubjects() {
 		this.favSubjects.forEach(element => {
 			console.log(element);
 		});
 	}
-
-	// listsSubjects() {
-	// 	for (i = 0; i < this.favSubjects.length; i++) {
-
-	//     }
-	// }
-
 	PRAssignment(subject) {
 		return `${this.name} has submitted a PR for ${subject}.`;
 	}
